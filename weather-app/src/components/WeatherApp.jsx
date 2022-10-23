@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import {RiSearch2Line} from 'react-icons/ri'
 
 function WeatherApp() {
 
@@ -17,6 +18,13 @@ function WeatherApp() {
     }
   };
 
+  const onButtonClick = (event) => {
+    axios.get(url).then((response) => {
+      setData(response.data);
+    });
+    setLocation("");
+  }
+
   return (
     <div className="app">
       <div className="search">
@@ -27,6 +35,14 @@ function WeatherApp() {
           placeholder="Введите название города..."
           type="text"
         />
+        <button
+        onClick={onButtonClick}
+        className="search-buton">
+          <RiSearch2Line
+          size={36}
+          color='#f8f8f8'
+          />
+        </button>
       </div>
       <div className="container">
         <div className="top">
