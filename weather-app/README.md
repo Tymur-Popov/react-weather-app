@@ -1,1 +1,1 @@
-React Weather App
+React-Weather-App using Open Weather Api
